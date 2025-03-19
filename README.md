@@ -36,7 +36,7 @@ npm run dev
 
 ```bash
 # Navigate to the backend directory
-cd backend
+cd api
 
 # Install dependencies
 yarn install
