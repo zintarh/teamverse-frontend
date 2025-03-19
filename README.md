@@ -39,10 +39,19 @@ npm run dev
 cd backend
 
 # Install dependencies
-npm install
+yarn install
+
+# Load environment variables
+cp sample.env .env
+
+# Build app
+yarn build
+
+# Create local database
+node create:db-local 
 
 # Run
-npm start
+yarn start:dev
 ```
 
 #### Contracts
