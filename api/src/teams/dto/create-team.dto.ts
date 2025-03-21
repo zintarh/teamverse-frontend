@@ -19,4 +19,5 @@ export class CreateTeamDto {
   @IsArray()
   @IsEmail({}, { each: true })
   inviteEmails?: string[];
+  // testing
 }
