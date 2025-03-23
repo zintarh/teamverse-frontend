@@ -54,7 +54,7 @@ body {
       transform: rotate(2deg);
     }
     to {
-      transform: rotate(-3deg);
+      transform: rotate(-2deg);
     }
   }
 
@@ -63,7 +63,7 @@ body {
       transform: rotate(-2deg);
     }
     to {
-      transform: rotate(3deg);
+      transform: rotate(2deg);
     }
   }
 
