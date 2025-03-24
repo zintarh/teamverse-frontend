@@ -11,7 +11,9 @@ const Navbar = () => {
                     height={15}
                     className="block"
                 />
-                <h1 className="text-[24px] font-bold">TEAMVERSE</h1>
+                <h1 className="text-[20px] md:text-[24px] font-bold">
+                    TEAMVERSE
+                </h1>
             </div>
             <div>
                 <ConnectWallet />
@@ -22,8 +24,10 @@ const Navbar = () => {
 
 const ConnectWallet = () => {
     return (
-        <button className="bg-[#1C1924] py-2 px-4 rounded-xl">
-            <span className="gradientText">Connect to Wallet</span>
+        <button className="bg-[#1C1924] py-2 px-4 rounded-xl lg:text-[16px]">
+            <span className="gradientText lg:text-[16px] text-[14px]">
+                Connect to Wallet
+            </span>
         </button>
     );
 };
