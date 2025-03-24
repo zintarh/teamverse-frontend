@@ -6,7 +6,7 @@ const page = () => {
     return (
         <section>
             <Navbar />
-            <div className="w-[495px] mx-auto mt-20">
+            <div className="lg:w-[495px] w-[95%] mx-auto mt-20">
                 <CreateTeam />
             </div>
         </section>

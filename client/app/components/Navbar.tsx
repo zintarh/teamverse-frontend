@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Navbar = () => {
     return (
-        <div className="border-b border-[#2C2C2C] flex justify-between items-center py-6 px-18">
+        <div className="border-b border-[#2C2C2C] flex justify-between items-center py-4 lg:py-6 px-4 lg:px-18 ">
             <div className="flex items-center space-x-3">
                 <Image
                     src="/logo.png"
