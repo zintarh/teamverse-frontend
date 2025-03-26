@@ -1,5 +1,5 @@
-import Image from "next/image"
 
+import Icons from "@/public/icons/Icons"
 
 
 
@@ -10,15 +10,15 @@ export default function IceBreaker() {
     const labels = [
         {
             text: " Fun Questions",
-            image: "/icons/fun-questions.svg"
+            icon: <Icons.FunQuestions className="w-5 " />
         },
         {
             text: " Great for Remote Teams",
-            image: "/icons/remote-teams.svg"
+            icon: <Icons.RemoteTeams className="w-5" />
         },
         {
             text: " Great for Remote Teams",
-            image: "/icons/hourglass.svg"
+            icon: <Icons.HourGlass className="w-5 " />
         },
 
     ]
@@ -32,12 +32,12 @@ export default function IceBreaker() {
             <ul className="hidden md:flex w-full  flex-col items-center justify-center ">
                 {
                     labels.map((label, index) =>
-                        <li key={index} className="bg-[#5552FF] px-3 py-2 lg:py-6 lg:px-4 opacity-[0.7]  w-full flex items-center justify-start gap-4 lg:text-base text-[10px] lg:font-bold  "
+                        <li key={index} className="bg-[#5552FF] px-3 py-1 lg:py-6 lg:px-4 opacity-[0.7]  w-full flex items-center justify-start gap-4 lg:text-base text-[10px] lg:font-bold  "
                             style={{
                                 backgroundColor: index === 1 ? "transparent" : "#5552FF",
                                 color: index === 1 ? "#5552FF" : "#FFFFFF"
                             }}>
-                            <Image src={label.image} alt="icon" height={10} width={10} />
+                            <div className=" w-6 h-6 " >{label.icon}</div>
                             {label.text}
                         </li>
                     )
