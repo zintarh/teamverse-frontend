@@ -1,15 +1,30 @@
 @import "tailwindcss";
 
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+  --background: #09080C;
+  --foreground: #ffffff;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-grotesk: var(--font-space-grotesk);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-grotesk), sans-serif;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

@@ -27,13 +27,14 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-            <body
-                className={`${spaceGrotesk.className} antialiased bg-[#09080C] text-white`}
-            >
-                {children}
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
+        style={{ fontFamily: "var(--font-space-grotesk)" }}
+      >
+        {children}
+      </body>
+    </html>
+  );
 }
