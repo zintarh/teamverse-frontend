@@ -13,8 +13,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id      String   @id @default(cuid())
+  email   String   @unique
+  name    String?
+  teams   Team[]   @relation("TeamMembers")
+  invites Invite[] @relation("InvitedUser")
+}
+
 model Team {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String
+  members User[]   @relation("TeamMembers")
+  invites Invite[]
+}
+
+model Invite {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  teamId    Int
+  team      Team     @relation(fields: [teamId], references: [id])
+  invitedBy String?
+  user      User?    @relation("InvitedUser", fields: [invitedBy], references: [id])
+  accepted  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  expiresAt DateTime
 }
