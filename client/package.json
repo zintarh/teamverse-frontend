@@ -6,7 +6,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky install",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "format": "prettier --write ."
   },
@@ -19,8 +18,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@eslint/js": "^9.23.0",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

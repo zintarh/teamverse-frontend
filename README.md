@@ -36,13 +36,22 @@ npm run dev
 
 ```bash
 # Navigate to the backend directory
-cd backend
+cd api
 
 # Install dependencies
-npm install
+yarn install
+
+# Load environment variables
+cp sample.env .env
+
+# Build app
+yarn build
+
+# Create local database
+node create:db-local 
 
 # Run
-npm start
+yarn start:dev
 ```
 
 #### Contracts
