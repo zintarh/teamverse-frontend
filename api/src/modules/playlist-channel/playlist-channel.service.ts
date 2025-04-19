@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreatePlaylistChannelDto } from './dto/create-playlist-channel.dto';
 
@@ -9,21 +9,46 @@ export class PlaylistChannelService {
   async createPlaylistChannel(
     createPlaylistChannelDto: CreatePlaylistChannelDto,
   ) {
-    return this.prisma.playlistChannel.create({
-      data: { teamId: createPlaylistChannelDto.teamId },
-    });
+    try {
+      return await this.prisma.playlistChannel.create({
+        data: { teamId: createPlaylistChannelDto.teamId },
+      });
+    } catch (error) {
+      throw new HttpException(
+        'Failed to create Playlist Channel',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
-  public findAllPlaylistChannels() {
-    return this.prisma.playlistChannel.findMany();
+  public async findAllPlaylistChannels() {
+    try {
+      return await this.prisma.playlistChannel.findMany();
+    } catch (error) {
+      throw new HttpException(
+        'Failed to retrieve Playlist Channels',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
-  // public findPlaylistChannelByTeamId(teamId: number) {
-  //   return this.prisma.playlistChannel.findMany({
-  //     where: { teamId },
-  //   });
-  // }
 
   async findPlaylistChannelById(id: number) {
-    return this.prisma.playlistChannel.findUnique({ where: { id } });
+    try {
+      const channel = await this.prisma.playlistChannel.findUnique({
+        where: { id },
+      });
+      if (!channel) {
+        throw new HttpException(
+          `Playlist Channel with ID ${id} not found`,
+          HttpStatus.NOT_FOUND,
+        );
+      }
+      return channel;
+    } catch (error) {
+      throw new HttpException(
+        'Failed to retrieve Playlist Channel',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }

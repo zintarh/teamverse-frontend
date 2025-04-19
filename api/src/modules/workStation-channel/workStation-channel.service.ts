@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateWorkStationChannelDto } from './dto/create-workStation-channel.dto';
 import { UpdateWorkStationChannelDto } from './dto/update-workStation.dto';
@@ -11,44 +11,62 @@ export class WorkstationChannelService {
   async createWorkStation(
     createWorkstationChannel: CreateWorkStationChannelDto,
   ) {
-    return this.prisma.workStationChannel.create({
-      data: { teamId: createWorkstationChannel.teamId },
-    });
+    try {
+      return await this.prisma.workStationChannel.create({
+        data: { teamId: createWorkstationChannel.teamId },
+      });
+    } catch (error) {
+      throw new HttpException(
+        'Failed to create Workstation Channel',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   // Get all Workstation Channels
-  public findAllWorkStationChannels() {
-    return this.prisma.workStationChannel.findMany();
+  public async findAllWorkStationChannels() {
+    try {
+      return await this.prisma.workStationChannel.findMany();
+    } catch (error) {
+      throw new HttpException(
+        'Failed to retrieve Workstation Channels',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   // Get Workstation Channel by ID
-  public findOneWorkStationChannel(id: number) {
-    return this.prisma.workStationChannel.findUnique({ where: { id } });
+  public async findOneWorkStationChannel(id: number) {
+    try {
+      const channel = await this.prisma.workStationChannel.findUnique({
+        where: { id },
+      });
+      if (!channel) {
+        throw new HttpException(
+          `Workstation Channel with ID ${id} not found`,
+          HttpStatus.NOT_FOUND,
+        );
+      }
+      return channel;
+    } catch (error) {
+      throw new HttpException(
+        'Failed to retrieve Workstation Channel',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   // Get Workstation Channels by Team ID
-  public findWorkStationChannelByTeamId(teamId: number) {
-    return this.prisma.workStationChannel.findMany({
-      where: { teamId },
-    });
+  public async findWorkStationChannelByTeamId(teamId: number) {
+    try {
+      return await this.prisma.workStationChannel.findMany({
+        where: { teamId },
+      });
+    } catch (error) {
+      throw new HttpException(
+        'Failed to retrieve Workstation Channels by Team ID',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
-
-  //Edit Workstation Channel by ID
-  // public async editWorkStationChannelById(
-  //   updateWorkStationChannelDto: UpdateWorkStationChannelDto,
-  // ) {
-  //   const team = await this.prisma.workStationChannel.findUnique({
-  //     where: { id: updateWorkStationChannelDto.id },
-  //   });
-  //   if (!team) {
-  //     throw new Error('Channel not found');
-  //   }
-
-  //   return this.prisma.workStationChannel.update({
-  //     where: { id: team.id },
-  //     data: {
-  //       name: { set: updateWorkStationChannelDto.name },
-  //     },
-  //   });
-  // }
 }
