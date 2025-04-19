@@ -14,7 +14,60 @@ datasource db {
 }
 
 model Team {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String
+  id        Int   @id @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  channels  Channel[]
+  Playlistchannel  PlaylistChannel[]
+  Weekendchannel  WeekendChannel[]
+  WorkStationchannel  WorkStationChannel[]
+}
+
+model Channel {
+  id        String   @id @default(uuid())
+  name      String
+  type      ChannelType
+  teamId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
+
+model PlaylistChannel {
+  id        Int   @id @default(autoincrement())
+  name      ChannelType   @default(PLAYLIST)
+  teamId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
+model WeekendChannel {
+  id        Int   @id @default(autoincrement())
+  name      ChannelType   @default(WEEKEND)
+  teamId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
+model WorkStationChannel {
+  id        Int   @id @default(autoincrement())
+  name      ChannelType   @default(WORKSTATION)
+  teamId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
+
+
+
+enum ChannelType {
+  WEEKEND
+  WORKSTATION
+  PLAYLIST
 }

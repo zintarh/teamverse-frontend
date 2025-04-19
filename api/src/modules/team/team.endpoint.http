@@ -1,0 +1,11 @@
+POST http://localhost:3000/team
+Content-Type: application/json
+{
+    "name": "Test team 3"
+}
+
+GET http://localhost:3000/team
+
+GET http://localhost:3000/team/channels
+
+GET http://localhost:3000/team/2

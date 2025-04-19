@@ -1,0 +1,9 @@
+POST http://localhost:3000/playlist-channel
+Content-Type: application/json
+{
+
+}
+
+GET http://localhost:3000/playlist-channel
+
+GET http://localhost:3000/playlist-channel/2
