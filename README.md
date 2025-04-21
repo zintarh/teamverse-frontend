@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teamverse Frontend 🕹️
 
-## Getting Started
+**Teamverse**  is a gamified team-bonding platform reimagining how remote teams connect beyond the screen. In an increasingly distributed world, many professionals work side-by-side virtually, yet barely know the people they collaborate with daily. This lack of connection silently erodes team culture, fuels burnout, and limits the power of true collaboration.
 
-First, run the development server:
+We’re building Teamverse to change that — to transform remote workplaces into communities. Through games, Teamverse helps teams build trust, reduce isolation, and rediscover the joy of working together.
+
+But Teamverse isn’t just about connection — it’s about access. We’re using blockchain not for speculation, but for inclusion. With seamless onboarding via Argent Invisible Wallet, we're introducing Web2 users to Web3 without friction — proving that blockchain can power meaningful, human-first experiences.
+
+---
+
+![Teamverse UI Preview](./public/playzone.png)
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/zintarh/teamverse-frontend.git
+cd teamverse-frontend
+Install dependencies:
+npm install
+# or
+yarn install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Open http://localhost:3000 in your browser to view the app.
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### ⚙️ Tech Stack
+Next.js – App Router for performance & flexibility
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tailwind CSS – Utility-first styling
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Radix UI – Accessible UI primitives
 
-## Learn More
+TypeScript – Type safety
 
-To learn more about Next.js, take a look at the following resources:
+Next Font – Optimized Geist font
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Argent Invisible Wallet – Frictionless Web3 onboarding
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 📁 Folder Structure
+csharp
+Copy
+Edit
+teamverse-frontend/
+│
+├── app/               # Next.js App Router
+├── components/        # Shared UI components
+├── public/            # Static assets (e.g., preview image)
+├── styles/            # Global Tailwind styles
+├── utils/             # Helper functions
+└── ...
+### 🌐 Deployment
+You can deploy Teamverse on Vercel with just a few clicks. Connect your GitHub repo and you're live.
 
-## Deploy on Vercel
+#### 🧑‍💻 Contributing
+We're open to contributions! If you have suggestions or want to fix something, feel free to:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Fork this repository
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create your feature branch:
+git checkout -b feat/amazing-feature
+
+Commit your changes:
+git commit -m 'Add amazing feature'
+
+Push to the branch:
+git push origin feat/amazing-feature
+
+Open a pull request
+
+🧪 Environment Variables
+Create a .env.local file and configure the necessary variables. Use .env.example as a reference if available.
+
+📜 License
+text
+Copy
+Edit
+MIT License
+
+Copyright (c) 2025 Zintarh
+
