@@ -48,18 +48,6 @@ Next Font – Optimized Geist font
 
 Argent Invisible Wallet – Frictionless Web3 onboarding
 
-#### 📁 Folder Structure
-csharp
-Copy
-Edit
-teamverse-frontend/
-│
-├── app/               # Next.js App Router
-├── components/        # Shared UI components
-├── public/            # Static assets (e.g., preview image)
-├── styles/            # Global Tailwind styles
-├── utils/             # Helper functions
-└── ...
 
 #### 🧑‍💻 Contributing
 We're open to contributions! If you have suggestions or want to fix something, feel free to:
