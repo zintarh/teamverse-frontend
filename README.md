@@ -60,8 +60,6 @@ teamverse-frontend/
 ├── styles/            # Global Tailwind styles
 ├── utils/             # Helper functions
 └── ...
-### 🌐 Deployment
-You can deploy Teamverse on Vercel with just a few clicks. Connect your GitHub repo and you're live.
 
 #### 🧑‍💻 Contributing
 We're open to contributions! If you have suggestions or want to fix something, feel free to:
