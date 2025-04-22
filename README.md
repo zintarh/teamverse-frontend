@@ -8,7 +8,7 @@ But Teamverse isn’t just about connection — it’s about access. We’re usi
 
 ---
 
-![Teamverse UI Preview](./public/playzone.png)
+![Teamverse UI Preview](./public/onboard.png)
 
 ---
 
