@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
-
+import HomeScreen from "../components/HomeScreen"
 export default function MapInterface() {
   const [messages, setMessages] = useState([
     {
@@ -16,7 +16,7 @@ export default function MapInterface() {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-black">
-      <div className="relative h-full w-full">
+      {/* <div className="relative h-full w-full">
         <Image
           src="/background/bg5.png"
           alt="Map Background"
@@ -72,11 +72,11 @@ export default function MapInterface() {
           />
           <span>zeetheexplorer</span>
         </div>
-      </div>
-
-      <Sidebar title="Office Space">
+      </div> */}
+<HomeScreen/>
+      {/* <Sidebar title="Office Space">
         <div>Hello world</div>
-      </Sidebar>
+      </Sidebar> */}
     </div>
   );
 }
