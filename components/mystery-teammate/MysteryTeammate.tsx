@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { GameHeader } from './game-header';
-import { MysteryFlow } from './mystery-flow';
-import { GameFooter } from './game-footer';
+import { GameHeader } from './GameHeader';
+import { MysteryFlow } from './MysteryFlow';
+import { GameFooter } from './GameFooter';
 import type { TeamMember, GameState } from '@/types/game-types';
 
 export default function MysteryTeammate() {
