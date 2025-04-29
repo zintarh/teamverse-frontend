@@ -2,10 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import islandBg from '../public/image.svg';
-import Lie from '../public/lie.svg';
-import second from '../public/second.svg';
-import IMG3 from '../public/IMG3.svg';
+import GameCard from './GameCard';
 import image from '../public/profile.svg';
 import ranking from '../public/ranking.svg';
 import desk from '../public/desk.svg';
@@ -29,10 +26,9 @@ export default function Home() {
 
   return (
     <div
-    className={`flex flex-col min-h-screen bg-cover bg-no-repeat transition-all duration-500 ${
-      darkMode ? 'bg-black' : 'bg-island'
-    }`}
-    
+      className={`flex flex-col min-h-screen bg-cover bg-no-repeat overflow-hidden transition-all duration-500 ${
+        darkMode ? 'bg-black' : 'bg-island'
+      }`}
     >
       {/* Top Bar */}
       <div className="flex justify-between items-center p-2 mt-2">
@@ -62,7 +58,8 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="flex-1 flex flex-col px-4  ">
+      {/* Main Content */}
+      <div className="flex-1 overflow-y-auto px-8">
         <div className="flex flex-col items-center text-center">
           <h1 className="text-sm font-bold text-white mb-6">
             Welcome to TeamVerse
@@ -79,42 +76,12 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Games */}
           <h2 className="text-white mb-4">Games</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="flex flex-col items-center">
-              <Image
-                src={Lie}
-                alt="2 Truths and a Lie"
-                width={200}
-                height={50}
-              />
-              <p className="text-white text-center text-sm mt-2">
-                2 Truths and a Lie
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Image
-                src={second}
-                alt="Mystery Player"
-                width={200}
-                height={50}
-              />
-              <p className="text-white text-center text-sm mt-2">
-                Mystery Player
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <Image src={IMG3} alt="Custom game" width={200} height={50} />
-              <p className="text-white text-center text-sm mt-2">Custom game</p>
-            </div>
-          </div>
+          {/* Games */}
+          <GameCard />
 
           {/* Leaderboard */}
-          <div className="w-full max-w-md bg-green-800/80 p-2 rounded-lg shadow-lg">
+          <div className="w-full max-w-md bg-green-800/80 p-2 rounded-lg shadow-lg mb-4">
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full overflow-hidden bg-white">
@@ -141,14 +108,16 @@ export default function Home() {
                 </div>
                 <p className="font-bold text-white ml-4">1st Place</p>
               </div>
-              <p className="text-xs text-white mt-0.5 ml-20">Out of 5 players</p>
+              <p className="text-xs text-white mt-0.5 ml-20">
+                Out of 5 players
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Buttons */}
-      <div className=" flex justify-center gap-4 p-3">
+      <div className="flex justify-center gap-4 p-3">
         <button className="bg-white/20 backdrop-blur p-3 rounded-full">
           <Image src={ranking} alt="Ranking" width={24} height={24} />
         </button>
