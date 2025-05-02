@@ -5,7 +5,7 @@ interface InviteCodeProps {
   const InviteCode = ({ code }: InviteCodeProps) => {
     return (
       <div className="flex justify-center">
-        <div className="bg-[#1F1F1F] px-4 py-1 rounded-lg text-sm">
+        <div className="bg-secondary-background px-4 py-1 rounded-lg text-sm">
           Invite code: <span className="text-white">{code}</span>
         </div>
       </div>

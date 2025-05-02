@@ -9,7 +9,9 @@ module.exports = {
         colors: {
           background: 'var(--background)',
           foreground: 'var(--foreground)',
+          mute: 'var(--mute)',
           'border-primary': 'var(--border-primary)',
+          'secondary-background': 'var(--secondary-background)',
         },
       },
     },

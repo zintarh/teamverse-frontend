@@ -9,7 +9,7 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <div className="flex items-center justify-between mb-4">
-      <div className="text-sm text-[#333333] font-semibold">
+      <div className="text-sm text-mute font-semibold">
         {title}
       </div>
       <Avatar size={30}/>
