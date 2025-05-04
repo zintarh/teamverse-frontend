@@ -9,7 +9,7 @@ export default function Button({ children, className, ...props }: ButtonProps) {
   return (
     <button
       className={clsx(
-        "px-4 py-2 rounded-lg text-white transition-all duration-200",
+        "px-4 py-2 rounded-lg  transition-all duration-200",
         className
       )}
       {...props}

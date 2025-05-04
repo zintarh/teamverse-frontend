@@ -1,4 +1,4 @@
-import MysteryTeammate from '@/components/mystery-teammate/MysteryTeammate';
+import MysteryTeammate from "@/components/MysteryTeammate/MysteryTeammate";
 
 export default function Home() {
   return (

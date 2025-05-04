@@ -81,11 +81,9 @@ const StatementUpload = () => {
 
   return (
     <div
-      className="min-h-screen  flex items-center justify-center"
-      style={{ backgroundImage: "url('/background/island-background.png')" }}
     >
       <div className='md:px-0 px-6'>
-      <div className="w-full h-auto  max-w-2xl mx-auto bg-[#191919] rounded-2xl p-6 shadow-2xl  text-white relative font-sans">
+      <div className="w-full h-auto mx-auto bg-[#191919] rounded-2xl p-6 shadow-2xl  text-white relative font-sans">
         <Header title="2 Truths & A Lie - Waiting room" />
 
         {/* Players */}

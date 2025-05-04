@@ -29,7 +29,7 @@ const GameSetupPanel = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center p-4"
+      className="min-h-screen flex items-center justify-center bg-no-repeat bg-cover bg-center p-4"
       style={{ backgroundImage: "url('/background/island-background.png')" }}
     >
       <div className="w-full max-w-2xl bg-[#111111] text-white rounded-xl shadow-xl p-6  relative">
