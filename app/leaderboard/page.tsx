@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import LeaderboardLayout from '@/app/leaderboard/components/LeaderboardLayout';
 import { Player } from '@/types/leaderboard-types';
 import { Header } from './components/Header';
+import Shell from '@/components/Shell';
 
 export default function LeaderboardPage() {
   const [players, setPlayers] = useState<Player[]>([]);
@@ -59,25 +60,8 @@ export default function LeaderboardPage() {
   }, []);
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center w-full"
-      style={{
-        backgroundImage: 'url(/background/island-background.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="pt-5">
-        <Header currentPlayer={currentPlayer} />{' '}
-        <div className="h-full max-w-4xl mx-auto ">
-          <div className="pt-4">
-            <LeaderboardLayout
-              players={players}
-              currentPlayer={currentPlayer}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <Shell>
+      <LeaderboardLayout players={players} currentPlayer={currentPlayer} />
+    </Shell>
   );
 }

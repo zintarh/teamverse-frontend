@@ -5,14 +5,19 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-interface ActionButtonProps {
+interface BottomNavButtonProps {
   icon: React.ReactNode;
   active?: boolean;
   onClick?: () => void;
   label: string;
 }
 
-function ActionButton({ icon, active, onClick, label }: ActionButtonProps) {
+function BottomNavButton({
+  icon,
+  active,
+  onClick,
+  label,
+}: BottomNavButtonProps) {
   return (
     <Button
       onClick={onClick}
@@ -20,7 +25,7 @@ function ActionButton({ icon, active, onClick, label }: ActionButtonProps) {
       variant="ghost"
       className={cn(
         'h-14 w-14 rounded-full flex items-center justify-center bg-teal-700/50 backdrop-blur-sm text-white hover:bg-teal-700/70 transition-all transform duration-200 ease-in-out',
-        active && 'scale-110 shadow-lg ring-2 ring-white' // Make active button larger and lifted
+        active && 'scale-110 shadow-lg ring-2 ring-white'
       )}
     >
       {icon}
@@ -28,10 +33,10 @@ function ActionButton({ icon, active, onClick, label }: ActionButtonProps) {
   );
 }
 
-export default function ActionButtons() {
-  const [activeButton, setActiveButton] = React.useState<string | null>('rank');
+export default function BottomNav() {
+  const [activeTab, setActiveTab] = React.useState<string | null>('ranking');
 
-  const buttons = [
+  const tabs = [
     {
       id: 'desk',
       label: 'Desk',
@@ -58,7 +63,6 @@ export default function ActionButtons() {
         />
       ),
     },
-
     {
       id: 'ranking',
       label: 'Ranking',
@@ -88,16 +92,18 @@ export default function ActionButtons() {
   ];
 
   return (
-    <div className="flex items-center justify-center space-x-4 mt-2">
-      {buttons.map((button) => (
-        <ActionButton
-          key={button.id}
-          icon={button.icon}
-          label={button.label}
-          active={activeButton === button.id}
-          onClick={() => setActiveButton(button.id)}
-        />
-      ))}
-    </div>
+    <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-transparent z-50">
+      <div className="flex items-center justify-center space-x-4 px-4 py-2  bg-[#1414141A] backdrop-blur-sm rounded-full shadow-md">
+        {tabs.map((tab) => (
+          <BottomNavButton
+            key={tab.id}
+            icon={tab.icon}
+            label={tab.label}
+            active={activeTab === tab.id}
+            onClick={() => setActiveTab(tab.id)}
+          />
+        ))}
+      </div>
+    </nav>
   );
 }

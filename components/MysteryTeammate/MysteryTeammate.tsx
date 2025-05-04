@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { GameHeader } from './GameHeader';
 import { MysteryFlow } from './MysteryFlow';
-import { GameFooter } from './GameFooter';
 import type { TeamMember, GameState } from '@/types/game-types';
+import Shell from '../Shell';
 
 export default function MysteryTeammate() {
   const [currentFlow, setCurrentFlow] = useState<number>(0);
@@ -76,21 +75,8 @@ export default function MysteryTeammate() {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
-      {/* Island background */}
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: "url('/background/island-background.png')" }}
-      />
-
-      {/* Game container */}
+    <Shell>
       <div className="relative w-full h-full flex flex-col">
-        <GameHeader
-          currentUser={teamMembers[2]}
-          onJoinGame={() => {}}
-          onConnectWallet={() => {}}
-        />
-
         <div className="flex-1 flex items-center justify-center p-4">
           <MysteryFlow
             flow={currentFlow}
@@ -102,8 +88,8 @@ export default function MysteryTeammate() {
           />
         </div>
 
-        <GameFooter />
+        {/* <GameFooter /> */}
       </div>
-    </div>
+    </Shell>
   );
 }

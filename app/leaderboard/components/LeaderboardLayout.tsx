@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Player, GameMode } from '@/types/leaderboard-types';
 import PlayerCard from './PlayerCard';
 import GameModeSelector from './GameModeSelector';
-import ActionButtons from './ActionButtons';
 
 interface LeaderboardLayoutProps {
   players: Player[];
@@ -35,10 +34,6 @@ export default function LeaderboardLayout({
             isHighlighted={currentPlayer?.id === player.id}
           />
         ))}
-      </div>
-
-      <div className="md:mt-72 mt-48 pb-4">
-        <ActionButtons />
       </div>
     </div>
   );
