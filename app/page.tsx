@@ -1,6 +1,7 @@
 // App.tsx
 'use client';
 import Image from 'next/image';
+import './globals.css';
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import HomeScreen from "../components/HomeScreen"

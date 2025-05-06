@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-=======
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
 /* @import "@tailwindcss/postcss/preflight.css";
 @import "@tailwindcss/postcss/components.css";
 @import "@tailwindcss/postcss/utilities.css"; */
->>>>>>> 39c7f13adca5502f108de41a5aa0c59568b02bfb
