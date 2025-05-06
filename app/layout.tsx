@@ -1,8 +1,15 @@
 // app/components/ClientLayout.tsx
 "use client";
 import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google';
+<<<<<<< HEAD
 import React from 'react';
 import { DarkModeProvider } from '../components/DarkModeContext';
+=======
+import './styles/tailwind.css';
+import './globals.css';
+import { Toaster } from '@/components/ui/toaster';
+
+>>>>>>> 2f39bb008f34401168ab9a819f9c98058fbd8565
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -27,6 +34,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <html lang="en">
+<<<<<<< HEAD
       <body>
       <DarkModeProvider>
         <div
@@ -40,6 +48,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </div>
         </DarkModeProvider>
+=======
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
+        style={{ fontFamily: 'var(--font-space-grotesk)' }}
+      >
+        {children}
+        <Toaster />
+>>>>>>> 2f39bb008f34401168ab9a819f9c98058fbd8565
       </body>
     </html>
   );
