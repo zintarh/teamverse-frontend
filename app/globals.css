@@ -1,5 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -131,8 +132,22 @@
   html {
     font-family: var(--font-grotesk), sans-serif;
   }
-}
+  
+  @layer utilities {
+    .border-border {
+      border-color: var(--border-primary);
+    }
+    .outline-ring\/50 {
+      outline: 2px solid rgba(59, 130, 246, 0.5); /* Tailwind blue 500 at 50% opacity */
+    }
+  }
 
+}
+* {
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
 h1 {
   font-size: 24px;
   color: #333333;

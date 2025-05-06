@@ -1,50 +1,32 @@
-import * as React from 'react';
-import {
-  Avatar,
-  AvatarImage,
-  AvatarFallback,
-} from '@/app/leaderboard/ui/Avatar';
-import Image from 'next/image';
-import JoinGame from './JoinGame';
-import Connect from './Connect';
+'use client';
+import { useDarkMode } from '../components/DarkModeContext';
 
-interface HeaderProps {
-  currentPlayer?: {
-    username: string;
-    avatarUrl?: string;
-  };
-}
 
-export const Header: React.FC<HeaderProps> = ({ currentPlayer }) => {
+import { useState, useEffect } from 'react';
+const Header: React.FC = () => {
+  const { darkMode, toggleDarkMode } = useDarkMode();
+
   return (
-    <div className="flex font-sans flex-wrap justify-between items-center px-4 py-3 gap-3">
-      <div className="flex-shrink-0">
-        <div className="h-12 w-12 rounded-full bg-black flex items-center justify-center">
-          {/* <Image src="/logo.png" alt="Join Icon" width={30} height={30} /> */}
-        </div>
+    <header className="flex items-center justify-between p-4 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+      <div className="flex items-center gap-3">
+        <div
+         onClick={toggleDarkMode}
+          className="w-10 h-10 rounded-full bg-black overflow-hidden cursor-pointer flex items-center justify-center"
+        ></div>
       </div>
-
-      {currentPlayer && (
-        <div className="flex items-center md:ml-80 ml-0 rounded-full bg-black px-6 gap-2.5 pl-3 pr-6 py-3">
-          <Avatar className="h-10 w-10">
-            <AvatarImage
-              src={currentPlayer.avatarUrl}
-              alt={currentPlayer.username}
-            />
-            <AvatarFallback>
-              {currentPlayer.username.charAt(0).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
-          <span className="text-white md:text-lg text-sm mr-2">
-            {currentPlayer.username}
-          </span>
-        </div>
-      )}
-
-      <div className="flex items-center gap-2.5 flex-wrap">
-        <JoinGame />
-        <Connect />
+      <div className="flex items-center gap-1 bg-black px-2 py-1 rounded-full ">
+        <img
+          src="/profile.svg"
+          alt="User Profile"
+          className="w-6 h-6 rounded-full"
+        />
+        <span className="text-xs text-white">Zee.the.whiz</span>
       </div>
-    </div>
+      <button className="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Connect wallet
+      </button>
+    </header>
   );
 };
+
+export default Header;

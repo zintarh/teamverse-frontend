@@ -1,3 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
 /* @import "@tailwindcss/postcss/preflight.css";
 @import "@tailwindcss/postcss/components.css";
 @import "@tailwindcss/postcss/utilities.css"; */
